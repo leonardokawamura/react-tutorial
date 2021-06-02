@@ -5,6 +5,7 @@ import {
   Switch, 
   Link
 } from "react-router-dom";
+import Clock from './pages/Clock';
 import ConsumingAPI from './pages/ConsumingAPI';
 import TodoList from './pages/TodoList'
 
@@ -24,6 +25,9 @@ export function Routes() {
                 <li className="nav-item">
                   <Link to="/consuming-api">- Consuming API</Link>
                 </li>
+                <li className="nav-item">
+                  <Link to="/clock">- Clock</Link>
+                </li>
               </ul>
             </nav> 
           </div>
@@ -34,6 +38,9 @@ export function Routes() {
               </Route>
               <Route path="/consuming-api">
                 <ConsumingAPI />
+              </Route>
+              <Route path="/clock">
+                <Clock />
               </Route>
             </Switch>
           </div>

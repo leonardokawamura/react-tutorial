@@ -45,4 +45,5 @@ iframe {
   height: 600px;
   max-width: 1200px;
   margin: 25px;
+  margin-left: 0;
 }

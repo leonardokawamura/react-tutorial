@@ -19,6 +19,7 @@ export default function ConsumingAPI() {
   return (
     <>    
       <iframe src={"https://ghostbin.co/paste/6e47"} title="code"></iframe>
+      <h1>Example</h1>
       <ul>
         {
           data.map((d, i) => (
