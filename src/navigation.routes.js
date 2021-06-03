@@ -7,7 +7,10 @@ import {
 } from "react-router-dom";
 import Clock from './pages/Clock';
 import ConsumingAPI from './pages/ConsumingAPI';
+import ListComponent from './pages/ListComponent';
+import LoginControl from './pages/LoginControl';
 import TodoList from './pages/TodoList'
+import WaterBoilCalculator from './pages/WaterBoilCalculator';
 
 export function Routes() {
 
@@ -28,6 +31,15 @@ export function Routes() {
                 <li className="nav-item">
                   <Link to="/clock">- Clock</Link>
                 </li>
+                <li className="nav-item">
+                  <Link to="/login-control">- LoginControl</Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/list-component">- ListComponent</Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/water-boil-calculator">- WalterBoilCalculator</Link>
+                </li>
               </ul>
             </nav> 
           </div>
@@ -41,6 +53,15 @@ export function Routes() {
               </Route>
               <Route path="/clock">
                 <Clock />
+              </Route>
+              <Route path="/login-control">
+                <LoginControl />
+              </Route>
+              <Route path="/list-component">
+                <ListComponent />
+              </Route>
+              <Route path="/water-boil-calculator">
+                <WaterBoilCalculator />
               </Route>
             </Switch>
           </div>
