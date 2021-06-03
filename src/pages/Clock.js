@@ -14,7 +14,7 @@ export default function Clock() {
 
   return (
     <>
-      <iframe src={"https://ghostbin.co/paste/ydov3k"} title="code"></iframe>
+      <iframe src={"https://ghostbin.co/paste/z2yz"} title="code"></iframe>
       <h1>Example</h1>
       <p>Now is: {time}</p> 
     </>
