@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router, 
   Route,
   Switch, 
-  Link
+  Link,
+  useRouteMatch
 } from "react-router-dom";
 import Clock from './pages/Clock';
 import ConsumingAPI from './pages/ConsumingAPI';
@@ -22,7 +23,58 @@ const data = [
   {category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}
 ]
 
+const links = [
+  {
+    path: '/todo-list',
+    label: 'TodoList',
+    page: <TodoList />
+  },
+  {
+    path: '/consuming-api',
+    label: 'Consuming API',
+    page: <ConsumingAPI />
+  },
+  {
+    path: '/clock',
+    label: 'Clock',
+    page: <Clock />
+  },
+  {
+    path: '/login-control',
+    label: 'LoginControl',
+    page: <LoginControl />
+  },
+  {
+    path: '/list-component',
+    label: 'ListComponent',
+    page: <ListComponent />
+  },
+  {
+    path: '/water-boil-calculator',
+    label: 'WaterBoilCalculator',
+    page: <WaterBoilCalculator />
+  },
+  {
+    path: '/filterable-product-table',
+    label: 'FilterableProductTable',
+    page: <FilterableProductTable products={data} />
+  }
+]
+
 export function Routes() {
+
+  function CustomMenuLink({ label, to, activeOnlyWhenExact }) {
+    let match = useRouteMatch({
+      path: to,
+      exact: activeOnlyWhenExact
+    });
+  
+    return (
+      <div className={match ? "active" : ""}>        
+        <Link to={to}>{label}</Link>
+      </div>
+    );
+  }
 
   return (
     <Router>      
@@ -31,54 +83,26 @@ export function Routes() {
           <div className="col-md-2" id="sidebar">
             <h1 className="sidebar-title">PROJETOS</h1>
             <nav className="navbar">
-              <ul>                
-                <li className="nav-item">
-                  <Link to="/todo-list">- TodoList</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/consuming-api">- Consuming API</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/clock">- Clock</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/login-control">- LoginControl</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/list-component">- ListComponent</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/water-boil-calculator">- WalterBoilCalculator</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/filterable-product-table">- FilterableProductTable</Link>
-                </li>
+              <ul>    
+                {
+                  links.map((link, index) => (
+                    <li key={index} className="nav-item">
+                      <CustomMenuLink to={link.path} label={link.label} activeOnlyWhenExact={true} />
+                    </li>
+                  ))
+                } 
               </ul>
             </nav> 
           </div>
           <div className="col-md-10 col-md-offset-2" id="main">
-            <Switch>        
-              <Route path="/todo-list">
-                <TodoList />
-              </Route>
-              <Route path="/consuming-api">
-                <ConsumingAPI />
-              </Route>
-              <Route path="/clock">
-                <Clock />
-              </Route>
-              <Route path="/login-control">
-                <LoginControl />
-              </Route>
-              <Route path="/list-component">
-                <ListComponent />
-              </Route>
-              <Route path="/water-boil-calculator">
-                <WaterBoilCalculator />
-              </Route>
-              <Route path="/filterable-product-table">
-                <FilterableProductTable products={data} />
-              </Route>
+            <Switch>   
+              {
+                links.map((link, index) => (
+                  <Route key={index} path={link.path}>
+                    {link.page}
+                  </Route>
+                ))
+              }
             </Switch>
           </div>
         </div>

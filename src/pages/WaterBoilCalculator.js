@@ -63,12 +63,15 @@ export default function WaterBoilCalculator() {
   }
 
   return (
-    <div>
-      <TemperatureInput temperature={celsius} scale="c" onChange={handleCelsiusChange} />
-      <br />
-      <TemperatureInput temperature={fahrenheit} scale="f" onChange={handleFahrenheitChange} />
-      <br />
-      <BoilingVerdict celsius={celsius} />
-    </div>
+    <>
+      <iframe src={"https://ghostbin.co/paste/ag53a"} title="code"></iframe>
+      <div>
+        <TemperatureInput temperature={celsius} scale="c" onChange={handleCelsiusChange} />
+        <br />
+        <TemperatureInput temperature={fahrenheit} scale="f" onChange={handleFahrenheitChange} />
+        <br />
+        <BoilingVerdict celsius={celsius} />
+      </div>
+    </>
   )
 }

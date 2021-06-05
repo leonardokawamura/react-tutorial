@@ -90,9 +90,12 @@ export default function FilterableProductTable({products}) {
   }, [products, query, showStockOnly])
 
   return (
-    <div className="container" style={{marginTop: '30px '}}>
-      <SearchBar query={query} onChange={handleSearchQueryChange} showStockOnly={showStockOnly} onShowStockOnlyChange={handleShowStockOnlyChange} />
-      <ProductTable data={filteredData} />
-    </div>
+    <>
+      <iframe src={"https://ghostbin.co/paste/5u5mc"} title="code"></iframe>
+      <div>
+        <SearchBar query={query} onChange={handleSearchQueryChange} showStockOnly={showStockOnly} onShowStockOnlyChange={handleShowStockOnlyChange} />
+        <ProductTable data={filteredData} />
+      </div>
+    </>
   )
 }
