@@ -23,9 +23,9 @@ const data = [
   {category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}
 ]
 
-const links = [
+const links = [  
   {
-    path: '/todo-list',
+    path: '/',
     label: 'TodoList',
     page: <TodoList />
   },
@@ -58,7 +58,7 @@ const links = [
     path: '/filterable-product-table',
     label: 'FilterableProductTable',
     page: <FilterableProductTable products={data} />
-  }
+  },  
 ]
 
 export function Routes() {
@@ -98,7 +98,7 @@ export function Routes() {
             <Switch>   
               {
                 links.map((link, index) => (
-                  <Route key={index} path={link.path}>
+                  <Route key={index} exact path={link.path}>
                     {link.page}
                   </Route>
                 ))
