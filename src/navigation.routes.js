@@ -7,10 +7,20 @@ import {
 } from "react-router-dom";
 import Clock from './pages/Clock';
 import ConsumingAPI from './pages/ConsumingAPI';
+import FilterableProductTable from './pages/FilterableProductTable';
 import ListComponent from './pages/ListComponent';
 import LoginControl from './pages/LoginControl';
 import TodoList from './pages/TodoList'
 import WaterBoilCalculator from './pages/WaterBoilCalculator';
+
+const data = [
+  {category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football"},
+  {category: "Sporting Goods", price: "$9.99", stocked: true, name: "Baseball"},
+  {category: "Sporting Goods", price: "$29.99", stocked: false, name: "Basketball"},
+  {category: "Electronics", price: "$99.99", stocked: true, name: "iPod Touch"},
+  {category: "Electronics", price: "$399.99", stocked: false, name: "iPhone 5"},
+  {category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}
+]
 
 export function Routes() {
 
@@ -40,6 +50,9 @@ export function Routes() {
                 <li className="nav-item">
                   <Link to="/water-boil-calculator">- WalterBoilCalculator</Link>
                 </li>
+                <li className="nav-item">
+                  <Link to="/filterable-product-table">- FilterableProductTable</Link>
+                </li>
               </ul>
             </nav> 
           </div>
@@ -62,6 +75,9 @@ export function Routes() {
               </Route>
               <Route path="/water-boil-calculator">
                 <WaterBoilCalculator />
+              </Route>
+              <Route path="/filterable-product-table">
+                <FilterableProductTable products={data} />
               </Route>
             </Switch>
           </div>
